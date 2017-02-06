@@ -1,12 +1,13 @@
-# CSCI_580
-A place for resources for AI.
+# ANN
 
-## Formulas:
+An artificial neural network built by Scott Gauthreaux and myself for identifying road signs.
 
-![Formulas](Screen Shot 2016-09-06 at 1.03.51 PM.png)
+The converter ruby script utilizes imagemagick software to edit and resize images for a standard size.
 
-![Formulas](Screen Shot 2016-09-06 at 1.05.24 PM.png)
+The grayscale.rb utilizes imagemagick software to edit images and make them grayscale.
 
-![Formulas](Screen Shot 2016-09-06 at 1.12.50 PM.png)
+Extract.py utilizes the python PIL library to convert any number of images in specified directories to binary representations of the depicted pixels, each pixel represented by an integer value 0-254 (for darkness) and writes them all into all.bin to be parsed by the ANN
 
-## Example of exlaining away problem [here](https://learn.csuchico.edu/bbcswebdav/pid-2243287-dt-content-rid-11932038_1/courses/168-CSCI580-01-2842/Lecture%204%20BN%20indep%20Exact%20Infer%20Enumer%20Fall2014.pdf "Explaining away link").
+The ann itself is in the ann directory
+
+## 
