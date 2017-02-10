@@ -12,6 +12,7 @@
 #include <stdlib.h>     /* atoi */
 #include <algorithm>
 #include <string>
+#include <cstring>
 #include "ann.h"
 
 #define MIN_ARGS 9
@@ -22,6 +23,29 @@ using namespace std;
 
 bool print_cmp = false;
 bool load_weights = false;
+
+// Ubuntu doesn't like to_string(), so create a substitute
+string itos (int myInt) {
+    string myStr; // we finna return this
+
+    int    decrementInt = myInt; // integer we will chop away at during loop
+    double pwr = 1; // start in 10's place
+    while (decrementInt > 0) {
+        double modVal = pow(10.0, pwr);
+        double divVal = pow(10.0, pwr-1);
+
+        char nextChar = '0' + (decrementInt % int(pow(10.0, pwr)))
+         /divVal; // extract next character
+
+        decrementInt -= nextChar; // decrement our integer
+
+        myStr.insert(0, 1, nextChar);
+
+        ++pwr;
+    }
+
+    return myStr;
+}
 
 vector<vector<prob> > matrixFromInput(istream *input, int rows, int cols) {
     vector<vector<prob> >matrix;
@@ -267,7 +291,7 @@ int main(int argc, char const *argv[]) {
         }
 
         if (i % 500 == 0) {
-            outputfile.open(to_string(i) + argv[8]);
+            outputfile.open( (itos(i) + argv[8]).c_str() );
             ann->printAll(outputfile);
             outputfile.close();
         }

@@ -1,7 +1,7 @@
 #G = g++
 G = clang++
 LIBS = -L/usr/local/opt/openblas/lib/ -I /usr/local/opt/openblas/include/
-FLAGS = -Ofast -std=c++11 -stdlib=libc++ -Wall -W -Werror -pedantic
+FLAGS = -Ofast -std=c++11 -Wall -W -Werror -pedantic
 
 ann: ann.o main.o
 	$(G) $(FLAGS) -o ann ann.o main.o
